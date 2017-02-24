@@ -1,0 +1,75 @@
+{% extends 'IKNSAAppBundle::layout.html.twig' %}
+
+{% block header %}
+    <h1>Header from index</h1>
+    This part has been overriden
+    <hr>
+{% endblock %}
+
+{% block body %}
+    Hello World!
+
+    <hr>
+
+    <h3>File inclusion IKNSAAppBundle:Default:fileToInclude.html.twig</h3>
+    {% include 'IKNSAAppBundle:Default:fileToInclude.html.twig' %}
+
+    <hr>
+
+    <h3>Filters</h3>
+    <h5>Date</h5>
+    {{ "now"|date(null, "Europe/Paris") }}
+
+    <br><br>
+    {{ "now"|date('D d/m/y H:i:s', "Europe/Paris") }}
+
+    <h5>Strings</h5>
+
+    {% set myArray = ["alfred", '<i>hitchcock</i>', 'arsène', 'lupin'] %}
+
+    {% for nom in myArray %}
+
+    {{ loop.index }} =>
+                        <b>nom upper </b>: {{ nom|upper }} ||
+
+                        <b>nom raw </b>: {{ nom|raw }} ||
+
+                        <b>nom raw title </b>: {{ nom|raw|title }} ||
+
+                        <b>nom striptags </b>: {{ nom|striptags }} ||
+
+                        <b>nom striptags length</b>: {{ nom|striptags|length }} ||
+
+                        <b>nom length </b>: {{ nom|length }} ||
+
+                        <br><br>
+    {% endfor %}
+
+    <hr>
+
+    <h3>Looping on an array</h3>
+    {% set myArray = ["alfred", 'hitchcock', 'Arsène', 'Lupin'] %}
+
+    {% for nom in myArray %}
+
+    {{ loop.index }} => {{ nom }}<br>
+
+    {% endfor %}
+
+    <hr>
+
+    <h3>Looping with step 2</h3>
+    <!-- Vous pouvez enlever le step=2 ou changer la valeur -->
+    {% for i in range(0, 10, step=2) %}
+    <!-- A noter que contrairement à l'index des tableaux en PHP, loop.index commence par 1 -->
+    {{ loop.index }} => {{ i }}<br>
+
+    {% endfor %}
+
+    <hr>
+
+    <h3>Setting variable</h3>
+    {% set myVariable = "Contenu d'une variable définie en tiwg" %}
+
+    {{ myVariable }}
+{% endblock %}

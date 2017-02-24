@@ -1,0 +1,10 @@
+iknsa_blog:
+    resource: "@IKNSABlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+iknsa_app:
+    resource: "@IKNSAAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

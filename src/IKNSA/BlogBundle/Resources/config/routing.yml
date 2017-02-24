@@ -1,0 +1,10 @@
+iknsa_blog_post:
+    resource: "@IKNSABlogBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+iknsa_blog_homepage:
+    path:     /
+    defaults: { _controller: IKNSABlogBundle:Blog:index }
+iknsa_api_post:
+    path:     /api/post
+    defaults: { _controller: IKNSABlogBundle:Post:api }
